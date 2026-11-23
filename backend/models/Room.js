@@ -1,0 +1,3 @@
+const mongoose=require('mongoose');
+const roomSchema=new mongoose.Schema({hotelId:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true},roomNumber:{type:String,required:true},floorName:{type:String,required:true},floorNumber:{type:Number,default:0},status:{type:String,enum:['cleaning','ready','occupied'],default:'cleaning'},assignedHousekeeper:{type:mongoose.Schema.Types.ObjectId,ref:'User',default:null},lastCleanedBy:{type:mongoose.Schema.Types.ObjectId,ref:'User',default:null},lastCleanedAt:{type:Date,default:null}}, {timestamps:true});
+roomSchema.index({hotelId:1,roomNumber:1},{unique:true}); module.exports=mongoose.model('Room',roomSchema);

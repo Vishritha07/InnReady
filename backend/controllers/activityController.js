@@ -1,0 +1,1 @@
+const Activity=require('../models/Activity');exports.list=async(req,res)=>{const hotelId=req.user.role==='hotel'?req.user.id:req.user.hotelId;res.json(await Activity.find({hotelId}).sort({createdAt:-1}).limit(500));};

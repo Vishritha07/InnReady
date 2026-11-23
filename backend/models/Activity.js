@@ -1,0 +1,2 @@
+const mongoose=require('mongoose');
+const activitySchema=new mongoose.Schema({hotelId:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true},employeeId:{type:mongoose.Schema.Types.ObjectId,ref:'User'},employeeName:String,employeeRole:String,roomNumber:String,floor:String,task:String,status:String,createdAt:{type:Date,default:Date.now}}, {timestamps:false}); module.exports=mongoose.model('Activity',activitySchema);

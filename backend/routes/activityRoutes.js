@@ -1,0 +1,1 @@
+const router=require('express').Router();const auth=require('../middleware/auth');const roles=require('../middleware/roles');router.use(auth,roles('hotel','supervisor'));router.get('/',require('../controllers/activityController').list);module.exports=router;
